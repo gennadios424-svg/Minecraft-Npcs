@@ -1,17 +1,30 @@
 # LivingTown
 
-A Fabric mod for Minecraft Java 1.21.11 focused on a lively, player-like NPC town for single-player worlds.
+A Fabric mod for Minecraft Java **1.21.11** focused on a lively, player-like NPC town for single-player worlds.
 
-> Early development: this repository is the source project, not a finished release. The first milestone is a reliable NPC foundation; school timetables, social behaviour and richer routines will be added and tested in later milestones.
+> **Early preview.** This repository now contains the first NPC foundation. It is not yet the full town simulator: daily schedules, school/work activities, custom skins, relationships and memories are still planned.
 
-## Goals
+## What is implemented in this preview
 
-- Player-proportioned humanoid NPCs with names and roles.
-- Simple commands instead of complicated setup.
-- Configurable daily schedules and destinations.
-- NPCs navigate between homes, school and workplaces.
-- NPC state is saved with the world.
-- Lightweight simulation: no mining, crafting or building AI is required.
+- A persistent humanoid NPC entity with a visible name.
+- A player-proportioned biped model using the default Steve texture.
+- Basic autonomous wandering and looking at nearby players.
+- Commands to spawn, list, remove and send nearby NPCs to a destination.
+- A GitHub Actions workflow that builds the mod and uploads a JAR artifact.
+
+## In-game commands
+
+Enable cheats or use a world where you have permission to run commands:
+
+| Command | What it does |
+|---|---|
+| `/livingtown help` | Show command help |
+| `/livingtown spawn Alex` | Spawn an NPC named Alex at your position |
+| `/livingtown list` | List LivingTown NPCs within 128 blocks |
+| `/livingtown goto Alex 120 64 -30` | Send Alex to the coordinates |
+| `/livingtown remove Alex` | Remove a nearby NPC named Alex |
+
+NPC names are used to identify characters, so give each nearby NPC a unique name. The first preview uses a default Steve-style skin; per-NPC skin selection is not implemented yet.
 
 ## Requirements
 
@@ -20,28 +33,31 @@ A Fabric mod for Minecraft Java 1.21.11 focused on a lively, player-like NPC tow
 - Fabric API **0.141.1+1.21.11**
 - Java **21**
 
-## Build
+## Easiest way to get the JAR
 
-1. Install JDK 21.
+1. Open the repository's **Actions** tab.
+2. Open the latest successful **Build LivingTown** run.
+3. Under **Artifacts**, download **LivingTown-JAR**.
+4. Put the regular `livingtown-*.jar` file (not a sources JAR) in your Minecraft `.minecraft/mods/` folder.
+5. Make sure Fabric API is also installed.
+
+The workflow runs automatically on pushes to `main` and `develop`, pull requests, and manual dispatch.
+
+## Build from source
+
+1. Install JDK 21 and Gradle 9.2.1.
 2. Clone this repository.
-3. Open the folder in IntelliJ IDEA (or another Gradle IDE).
-4. Use Gradle 9.2.1 and run `gradle build` (the GitHub Actions build does this automatically).
-5. Find the mod JAR in `build/libs/` (the `-sources` JAR is not the one to install).
-6. Put the regular JAR in `.minecraft/mods/` alongside Fabric API.
-
-The GitHub Actions workflow builds the project on every push and pull request. Download the `LivingTown-JAR` artifact from a successful workflow run.
-
-## Design promise
-
-LivingTown is intended for single-player, but the NPC simulation runs on the integrated server so NPCs behave consistently and their data is saved by Minecraft. It does not require a separate server.
+3. Open the project in IntelliJ IDEA or another Gradle IDE.
+4. Run `gradle build`.
+5. Find the JAR in `build/libs/`.
 
 ## Development status
 
-See [ROADMAP.md](ROADMAP.md) for the current milestone and planned features. Do not treat planned features as implemented until they are listed under **Working now**.
+See [ROADMAP.md](ROADMAP.md). Features listed as planned are not implemented until they are moved into **What is implemented** above.
 
-## Safety for worlds
+## World safety
 
-Back up important worlds before testing development builds. Early builds may change saved NPC data as the format evolves.
+Back up important worlds before testing preview builds. NPCs are saved as Minecraft entities, but early versions may change how custom NPC data is stored.
 
 ## License
 
