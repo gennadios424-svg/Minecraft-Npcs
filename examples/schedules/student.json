@@ -1,0 +1,13 @@
+{
+  "name": "Alex",
+  "role": "student",
+  "personality": "friendly",
+  "home": "home_alex",
+  "schedule": [
+    { "at": "07:30", "activity": "walk_to", "destination": "school_gate" },
+    { "at": "08:00", "activity": "attend_class", "destination": "classroom_1" },
+    { "at": "10:00", "activity": "break", "destination": "school_yard" },
+    { "at": "12:00", "activity": "lunch", "destination": "cafeteria" },
+    { "at": "15:00", "activity": "walk_to", "destination": "home_alex" }
+  ]
+}
