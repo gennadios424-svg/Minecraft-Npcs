@@ -22,12 +22,16 @@ jobs:
           java-version: '21'
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '9.2.1'
       - name: Build mod JAR
         run: gradle build --no-daemon
       - name: Upload JAR
         uses: actions/upload-artifact@v4
         with:
           name: LivingTown-JAR
-          path: build/libs/*[!sources].jar
+          path: |
+            build/libs/livingtown-*.jar
+            !build/libs/*-sources.jar
           if-no-files-found: error
           retention-days: 14
