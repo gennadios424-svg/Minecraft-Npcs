@@ -25,7 +25,7 @@ A Fabric mod for Minecraft Java 1.21.11 focused on a lively, player-like NPC tow
 1. Install JDK 21.
 2. Clone this repository.
 3. Open the folder in IntelliJ IDEA (or another Gradle IDE).
-4. Run the Gradle `build` task.
+4. Use Gradle 9.2.1 and run `gradle build` (the GitHub Actions build does this automatically).
 5. Find the mod JAR in `build/libs/` (the `-sources` JAR is not the one to install).
 6. Put the regular JAR in `.minecraft/mods/` alongside Fabric API.
 
