@@ -7,7 +7,7 @@ import net.minecraft.world.entity.ai.goal.FloatGoal;
 import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
 import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
 import net.minecraft.world.entity.ai.goal.RandomStrollGoal;
-import net.minecraft.world.entity.monster.PathfinderMob;
+import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.core.BlockPos;
@@ -45,7 +45,7 @@ public final class LivingTownNpc extends PathfinderMob {
     }
 
     public boolean goTo(BlockPos destination) {
-        if (destination == null || !level().isLoaded(destination)) {
+        if (destination == null || !level().hasChunkAt(destination)) {
             return false;
         }
         scriptedDestination = destination.immutable();
