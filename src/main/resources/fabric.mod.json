@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "id": "livingtown",
+  "version": "${version}",
+  "name": "LivingTown",
+  "description": "A player-like NPC town simulation with schedules and everyday activities.",
+  "authors": ["LivingTown contributors"],
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": ["dev.livingtown.LivingTownMod"]
+  },
+  "depends": {
+    "fabricloader": ">=0.18.1",
+    "minecraft": "=1.21.11",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}
